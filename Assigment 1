@@ -1,0 +1,31 @@
+#Get user input of vertices separated by a comma
+vertices=input("Enter a list of vertices: ").split(',')
+
+#Create an empty list where the edges will be stored
+edges=[]
+
+#Run a while loop that stops when the user is done entering all edges
+while(True):
+    b=input("Enter an edge separated by commas like 1,2 or type stop to exit: ")
+    if(b=="stop"):
+        break
+        
+#All edges are appended in the list created earlier
+    edges.append(b.split(','))
+
+#Create an empty dictionary that will serve as the adjacency list    
+AdjacencyList={}
+
+#Run a for loop to add the edges into the adjacency list(dictionary)
+for i in vertices:
+    k=[]
+
+#This loop compares the values in the vertices and edges list and adds all matching values
+    for j in edges:
+        if i ==j[0]:
+            k.append(j[1])
+        elif i==j[1]:
+            k.append(j[0])
+    AdjacencyList[i]=k
+    
+print("The Adjacency List is: \n",AdjacencyList)
